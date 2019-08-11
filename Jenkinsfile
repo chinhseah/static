@@ -8,10 +8,8 @@ pipeline {
 
                 withAWS(region:'us-west-2',credentials:'aws-static') {
 
-                    def identity=awsIdentity();//Log AWS credentials
-
                     // Upload files from current directory in your project workspace
-                    s3Upload(bucket:"udacitystaticcseah", workingDir:'', includePathPattern:'**/*');
+                    s3Upload(file:'index.html', bucket:'udacitystaticcseah', path:'./index.html')
                 }
 
             };
